@@ -1,0 +1,9 @@
+INDEX VERSION 1.131+C:\Users\romain.capocasa\Documents\InfDataLab1\.metadata\.plugins\org.eclipse.jdt.core
+3130079757.index
+644500392.index
+2176089314.index
+1284983748.index
+87111012.index
+4190033624.index
+3235559605.index
+2165741642.index

@@ -1,0 +1,42 @@
+2020-10-01 21:33:18,644 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-10-01 21:33:37,221 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: ch.heig.dmg:labo1-cacm:1.0-SNAPSHOT @ C:\Users\romain.capocasa\Desktop\T-InfData2020_Labo1\lab1\pom.xml.
+2020-10-01 21:33:37,860 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /lab1/src/main/java
+2020-10-01 21:33:37,861 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /lab1/src/test/java
+2020-10-01 21:33:38,117 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 3 sec
+2020-10-01 21:33:38,968 [Worker-16: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-01 21:33:38,974 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Desktop\T-InfData2020_Labo1\lab1\src\main\resources
+2020-10-01 21:33:38,975 [Worker-16: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-01 21:33:38,980 [Worker-16: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Desktop\T-InfData2020_Labo1\lab1\src\test\resources
+2020-10-01 21:33:48,498 [Worker-8: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/lucene/lucene-analyzers-common/8.6.2/lucene-analyzers-common-8.6.2-sources.jar
+2020-10-01 21:33:48,777 [Worker-8: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/lucene/lucene-analyzers-common/8.6.2/lucene-analyzers-common-8.6.2-sources.jar
+2020-10-01 21:33:48,889 [Worker-8: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.lucene:lucene-analyzers-common:8.6.2
+2020-10-01 21:33:49,017 [Worker-8: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/lucene/lucene-misc/8.6.2/lucene-misc-8.6.2-sources.jar
+2020-10-01 21:33:49,118 [Worker-8: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/lucene/lucene-misc/8.6.2/lucene-misc-8.6.2-sources.jar
+2020-10-01 21:33:49,217 [Worker-8: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.lucene:lucene-misc:8.6.2
+2020-10-01 21:33:49,349 [Worker-8: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/lucene/lucene-queries/8.6.2/lucene-queries-8.6.2-sources.jar
+2020-10-01 21:33:49,461 [Worker-8: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/lucene/lucene-queries/8.6.2/lucene-queries-8.6.2-sources.jar
+2020-10-01 21:33:49,549 [Worker-8: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.lucene:lucene-queries:8.6.2
+2020-10-01 21:33:49,684 [Worker-8: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/lucene/lucene-queryparser/8.6.2/lucene-queryparser-8.6.2-sources.jar
+2020-10-01 21:33:49,843 [Worker-8: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/lucene/lucene-queryparser/8.6.2/lucene-queryparser-8.6.2-sources.jar
+2020-10-01 21:33:49,913 [Worker-8: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.lucene:lucene-queryparser:8.6.2
+2020-10-01 21:33:50,055 [Worker-8: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/lucene/lucene-sandbox/8.6.2/lucene-sandbox-8.6.2-sources.jar
+2020-10-01 21:33:50,148 [Worker-8: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/lucene/lucene-sandbox/8.6.2/lucene-sandbox-8.6.2-sources.jar
+2020-10-01 21:33:50,242 [Worker-8: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.lucene:lucene-sandbox:8.6.2
+2020-10-01 21:33:50,251 [Worker-8: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.lucene:lucene-analyzers-common:8.6.2
+2020-10-01 21:33:50,259 [Worker-8: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.lucene:lucene-misc:8.6.2
+2020-10-01 21:33:50,267 [Worker-8: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.lucene:lucene-queries:8.6.2
+2020-10-01 21:33:50,275 [Worker-8: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.lucene:lucene-queryparser:8.6.2
+2020-10-01 21:33:50,283 [Worker-8: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.lucene:lucene-sandbox:8.6.2
+2020-10-01 21:33:50,455 [Worker-14: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-01 21:33:50,461 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Desktop\T-InfData2020_Labo1\lab1\src\main\resources
+2020-10-01 21:33:50,462 [Worker-14: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-01 21:33:50,467 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Desktop\T-InfData2020_Labo1\lab1\src\test\resources
+2020-10-01 21:37:59,897 [Worker-19: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-01 21:37:59,903 [Worker-19: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Desktop\T-InfData2020_Labo1\lab1\src\main\resources
+2020-10-01 21:37:59,904 [Worker-19: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-01 21:37:59,913 [Worker-19: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Desktop\T-InfData2020_Labo1\lab1\src\test\resources
+2020-10-01 21:42:25,098 [Worker-19: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-01 21:42:25,103 [Worker-19: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Desktop\T-InfData2020_Labo1\lab1\src\main\resources
+2020-10-01 21:42:25,104 [Worker-19: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-01 21:42:25,110 [Worker-19: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Desktop\T-InfData2020_Labo1\lab1\src\test\resources
+2020-10-01 21:43:49,936 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
