@@ -13,7 +13,6 @@
     In the Lucene library, the following classes are available for stemming: 
         * PorterStemFilter
         * PorterStemmer
-        * EnglishAnalyzer 
 
     None of these classes are used in the command line demo. The stemming is not perform.
 

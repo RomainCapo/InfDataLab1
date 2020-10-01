@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.apache.lucene.analysis.standard.StandardAnalyzer"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.index.IndexWriterConfig"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.index.IndexWriterConfig.OpenMode"/>
+    <fullyQualifiedTypeName name="java.nio.file.Path"/>
+    <fullyQualifiedTypeName name="java.nio.file.FileSystems"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.store.Directory"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.store.FSDirectory"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.index.IndexWriter"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.document.Document"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.document.Field"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.document.FieldType"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.document.StringField"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.document.TextField"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.index.IndexOptions"/>
+</qualifiedTypeNameHistroy>
