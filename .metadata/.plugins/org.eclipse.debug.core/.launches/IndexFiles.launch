@@ -11,7 +11,7 @@
     <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
     <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="ch.heigvd.iict.dmg.demo.IndexFiles"/>
     <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="lab1"/>
-    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-index common_word.txt -docs documents"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-index test -docs  documents/cacm.txt"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="lab1"/>
     <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
 </launchConfiguration>
