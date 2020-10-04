@@ -10,9 +10,19 @@
     <fullyQualifiedTypeName name="org.apache.lucene.index.IndexWriter"/>
     <fullyQualifiedTypeName name="org.apache.lucene.document.Document"/>
     <fullyQualifiedTypeName name="org.apache.lucene.document.FieldType"/>
-    <fullyQualifiedTypeName name="org.apache.lucene.document.StringField"/>
     <fullyQualifiedTypeName name="org.apache.lucene.document.TextField"/>
     <fullyQualifiedTypeName name="org.apache.lucene.index.IndexOptions"/>
-    <fullyQualifiedTypeName name="org.apache.lucene.document.Field.Store"/>
     <fullyQualifiedTypeName name="org.apache.lucene.document.Field"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.misc.HighFreqTerms"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.misc.HighFreqTerms.DocFreqComparator"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.codecs.TermStats"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.misc.TermStats"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.document.StringField"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.document.Field.Store"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.util.MathUtil"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.document.IntPoint"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.document.LongPoint"/>
 </qualifiedTypeNameHistroy>

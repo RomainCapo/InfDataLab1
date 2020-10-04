@@ -5,6 +5,7 @@ import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.FieldType;
+import org.apache.lucene.document.LongPoint;
 import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexOptions;
@@ -60,8 +61,8 @@ public class CACMIndexer implements ParserListener {
 			// TODO student: add to the document "doc" the fields given in
 			// parameters. You job is to use the right Field and FieldType
 			// for these parameters.
-
-			doc.add(new TextField("authors", authors, Field.Store.YES));
+			doc.add(new LongPoint("id", id));
+			doc.add(new StringField("author", authors, Field.Store.YES));
 			doc.add(new TextField("title", title, Field.Store.YES));
 
 			FieldType fieldType = new FieldType();

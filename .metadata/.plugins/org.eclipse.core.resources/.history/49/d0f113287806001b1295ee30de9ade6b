@@ -1,0 +1,27 @@
+package ch.heigvd.iict.dmg.labo1.similarities;
+
+import org.apache.lucene.search.similarities.ClassicSimilarity;
+
+public class MySimilarity extends ClassicSimilarity {
+
+	public MySimilarity() {
+
+	}
+
+	public float tf(float freq) {
+		return 1.0 + Math.log10(freq);
+
+	}
+
+	public float idf(long docFreq, long numDocs) {
+		return numDocs;
+
+	}
+
+	public float lengthNorm(int numTerms) {
+		return numTerms;
+
+	}
+	// TODO student
+	// Implement the functions described in section "Tuning the Lucene Score"
+}

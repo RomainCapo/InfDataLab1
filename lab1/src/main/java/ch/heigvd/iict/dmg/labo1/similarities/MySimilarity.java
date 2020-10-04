@@ -4,6 +4,19 @@ import org.apache.lucene.search.similarities.ClassicSimilarity;
 
 public class MySimilarity extends ClassicSimilarity {
 
-	// TODO student
-	// Implement the functions described in section "Tuning the Lucene Score"
+
+	public float tf(float freq) {
+		return (float) (1.0 + Math.log10(freq));
+
+	}
+
+	public float idf(long docFreq, long numDocs) {
+		return (float) (Math.log10(numDocs/docFreq+1)+1);
+
+	}
+
+	public float lengthNorm(int numTerms) {
+		return 1;
+
+	}
 }

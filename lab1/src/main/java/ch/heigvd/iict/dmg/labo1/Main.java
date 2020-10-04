@@ -8,14 +8,19 @@ import ch.heigvd.iict.dmg.labo1.similarities.MySimilarity;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.codecs.TermStats;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.FieldType;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
+import org.apache.lucene.misc.HighFreqTerms;
+import org.apache.lucene.misc.HighFreqTerms.DocFreqComparator;
 import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
@@ -47,10 +52,11 @@ public class Main {
 
 		queriesPerformer.close();
 		
+
 	}
 
 	private static void readingIndex(QueriesPerformer queriesPerformer) {
-		queriesPerformer.printTopRankingTerms("authors", 10);
+		queriesPerformer.printTopRankingTerms("author", 10);
 		queriesPerformer.printTopRankingTerms("title", 10);
 	}
 

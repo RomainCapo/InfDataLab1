@@ -3,6 +3,9 @@ package ch.heigvd.iict.dmg.labo1.queries;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.misc.HighFreqTerms;
+import org.apache.lucene.misc.HighFreqTerms.DocFreqComparator;
+import org.apache.lucene.misc.TermStats;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.Directory;
@@ -28,6 +31,8 @@ public class QueriesPerformer {
 			this.indexSearcher = new IndexSearcher(indexReader);
 			if(similarity != null)
 				this.indexSearcher.setSimilarity(similarity);
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -37,7 +42,22 @@ public class QueriesPerformer {
 		// TODO student
 		// This methods print the top ranking term for a field.
 		// See "Reading Index".
-	    System.out.println("Top ranking terms for field ["  + field +"] are: ");
+		
+		try {
+			DocFreqComparator cmp = new HighFreqTerms.DocFreqComparator();
+			TermStats[] highFreqTerms;
+			highFreqTerms = HighFreqTerms.getHighFreqTerms(indexReader, numTerms, field, cmp);
+			System.out.println("Top ranking terms for field ["  + field +"] are: ");
+			
+			for(TermStats ts : highFreqTerms)
+			{				
+				System.out.println("Term : " + ts.termtext.utf8ToString());
+				System.out.println("Term frequency : " + ts.docFreq);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void query(String q) {

@@ -1,25 +1,131 @@
 # Report
-## Chapter 2
+## Chapter 2.1
 ### 1 and 2)
-    StrinField -> A field that is indexed but not tokenized (the entire String value is indexed as a single token).
-    LongPoint -> A field that indexes long values for efficient range filtering and sorting.
-    TextField -> A field that is indexed and tokenized, without term vectors.
+* StrinField : A field that is indexed but not tokenized (the entire String value is indexed as a single token).
+* LongPoint : A field that indexes long values for efficient range filtering and sorting.
+* TextField : A field that is indexed and tokenized, without term vectors.
 
 ### 3)
-    It seems that the StandardAnalyser (https://lucene.apache.org/core/7_3_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) class proceeds to a suppresion of stop words in the query. 
-    Lucene provides a default stop words dictionary if no stop words list is provided in the StandardAnalyser class constructor.
+It seems that the StandardAnalyser (https://lucene.apache.org/core/7_3_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) class proceeds to a suppresion of stop words in the query. 
+
+Lucene provides a default stop words dictionary if no stop words list is provided in the StandardAnalyser class constructor.
 
 ### 4)
-    In the Lucene library, the following classes are available for stemming: 
-        * PorterStemFilter
-        * PorterStemmer
-        * EnglishAnalyzer 
+In the Lucene library, the following classes are available for stemming: 
+* PorterStemFilter
+* PorterStemmer
+* EnglishAnalyzer 
 
-    None of these classes are used in the command line demo. The stemming is not perform.
+ None of these classes are used in the command line demo. The stemming is not perform.
 
 ### 5)
-    In the demo example the search is case-insentive. 
-    Indeed the StandardAnalyser class uses a LowerCaseFilter which converts all the words of the query into lower case. 
+In the demo example the search is case-insentive. 
+
+Indeed the StandardAnalyser class uses a LowerCaseFilter which converts all the words of the query into lower case. 
     
 ### 6)  
-    The removal of stop words takes place first. Indeed there is no interest ito perform the stemming on the stop words to delete them later.
+The removal of stop words takes place first. Indeed there is no interest ito perform the stemming on the stop words to delete them later.
+
+## Chapter 3.1
+### 1
+    
+A term vector saves all the information related to a term, include the Term value, frequencies, positions.
+
+It is a per-document inverted index and provides functionality to find all the term information in the document according to document identifiant.
+
+Definition from : https://medium.com/@Alibaba_Cloud/analysis-of-lucene-basic-concepts-5ff5d8b90a53
+
+### 2
+The IndexReader class has the following methods :
+* getTermVector(int docID, String field) -> get one term vector
+* getTermVectors(int docID) -> get all term vectors
+
+### 3
+* Size without term vector : 472 Ko
+* Size with term vector : 1.16 Mo
+
+It can be seen that the memory size of the index is larger with the term vector.
+
+### Code
+Main.java 
+```java
+private static Analyzer getAnalyzer() {
+	return new StandardAnalyzer();
+	}
+```
+
+CACMIndexer.java
+```java
+@Override
+public void onNewDocument(Long id, String authors, String title, String summary) {
+    if (summary != null) {
+
+        Document doc = new Document();
+        doc.add(new LongPoint("id", id));
+        doc.add(new TextField("authors", authors, Field.Store.YES));
+        doc.add(new TextField("title", title, Field.Store.YES));
+
+        FieldType fieldType = new FieldType();
+        fieldType.setIndexOptions(IndexOptions.DOCS);
+        fieldType.setStoreTermVectorOffsets(true);
+        fieldType.setStoreTermVectors(true);
+        doc.add(new Field("summary", summary, fieldType));
+
+        try {
+            this.indexWriter.addDocument(doc);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+```
+
+## Chapter 3.3
+### 1
+QueriesPerformer.java
+```java
+public void printTopRankingTerms(String field, int numTerms) {
+
+		
+    try {
+        DocFreqComparator cmp = new HighFreqTerms.DocFreqComparator();
+        TermStats[] highFreqTerms;
+        highFreqTerms = HighFreqTerms.getHighFreqTerms(indexReader, numTerms, field, cmp);
+        System.out.println("Top ranking terms for field ["  + field +"] are: ");
+        
+        for(TermStats ts : highFreqTerms)
+        {				
+            System.out.println("Term : " + ts.termtext.utf8ToString());
+            System.out.println("Term frequency : " + ts.docFreq);
+        }
+        
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+```
+
+## Chapter 3.5
+MySimilarity.java
+```java
+package ch.heigvd.iict.dmg.labo1.similarities;
+
+import org.apache.lucene.search.similarities.ClassicSimilarity;
+
+public class MySimilarity extends ClassicSimilarity {
+
+
+	public float tf(float freq) {
+		return (float) (1.0 + Math.log10(freq));
+	}
+
+	public float idf(long docFreq, long numDocs) {
+		return (float) (Math.log10(numDocs/docFreq+1)+1);
+	}
+
+	public float lengthNorm(int numTerms) {
+		return 1;
+	}
+}
+
+```
