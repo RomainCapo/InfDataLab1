@@ -54,31 +54,36 @@ public class CACMIndexer implements ParserListener {
 
 	@Override
 	public void onNewDocument(Long id, String authors, String title, String summary) {
-		if (summary != null) {
 
-			Document doc = new Document();
 
-			// TODO student: add to the document "doc" the fields given in
-			// parameters. You job is to use the right Field and FieldType
-			// for these parameters.
-			doc.add(new LongPoint("id", id));
-			doc.add(new StringField("author", authors, Field.Store.YES));
-			doc.add(new TextField("title", title, Field.Store.YES));
+		Document doc = new Document();
+
+		// TODO student: add to the document "doc" the fields given in
+		// parameters. You job is to use the right Field and FieldType
+		// for these parameters.
+		doc.add(new LongPoint("id", id));
+		doc.add(new StringField("author", authors, Field.Store.YES));
+		doc.add(new TextField("title", title, Field.Store.YES));
+
 
 			FieldType fieldType = new FieldType();
+			// ??
 			fieldType.setIndexOptions(IndexOptions.DOCS);
+			// on stock les offsets
 			fieldType.setStoreTermVectorOffsets(true);
+			// on stock les term vectors
 			fieldType.setStoreTermVectors(true);
+
+		if (summary != null) {
 			doc.add(new Field("summary", summary, fieldType));
-
-
+		}
 			try {
 				this.indexWriter.addDocument(doc);
 
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
+
 
 	}
 
