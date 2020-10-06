@@ -44,7 +44,10 @@ public class CACMIndexer implements ParserListener {
 			iwc.setSimilarity(similarity);
 		// 1.3. create index writer
 //		Path path = FileSystems.getDefault().getPath("index");
-		Path path = FileSystems.getDefault().getPath("whiteSpaceAnalyzer");
+//		Path path = FileSystems.getDefault().getPath("whiteSpaceAnalyzer");
+//		Path path = FileSystems.getDefault().getPath("englishAnalyzer");
+//		Path path = FileSystems.getDefault().getPath("englishAnalyzer");
+		Path path = FileSystems.getDefault().getPath("stopAnalyzer");
 		try {
 			this.dir = FSDirectory.open(path);
 			this.indexWriter = new IndexWriter(dir, iwc);

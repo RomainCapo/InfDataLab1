@@ -12,7 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.core.StopAnalyzer;
 import org.apache.lucene.analysis.core.WhitespaceAnalyzer;
+import org.apache.lucene.analysis.en.EnglishAnalyzer;
+import org.apache.lucene.analysis.shingle.ShingleAnalyzerWrapper;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.codecs.TermStats;
 import org.apache.lucene.document.Document;
@@ -83,7 +86,17 @@ public class Main {
 		// and return the appropriate Analyzers asked.
 
 //		return new StandardAnalyzer(); //   1.16 M
-		return new WhitespaceAnalyzer(); // 1.5  M
+//		return new WhitespaceAnalyzer(); // 1.5  M
+//		return new EnglishAnalyzer(); // 1.2 M
+//		return new ShingleAnalyzerWrapper(new StandardAnalyzer(), 1);
+		Path cw = FileSystems.getDefault().getPath("common_words.txt"); // 1.2 M
+		try {
+			return new StopAnalyzer(cw);
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+
 	}
 
 }
