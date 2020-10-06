@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.core.WhitespaceAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.codecs.TermStats;
 import org.apache.lucene.document.Document;
@@ -81,7 +82,8 @@ public class Main {
 		// For the next part "Using different Analyzers" modify this method
 		// and return the appropriate Analyzers asked.
 
-		return new StandardAnalyzer();
+//		return new StandardAnalyzer(); //   1.16 M
+		return new WhitespaceAnalyzer(); // 1.5  M
 	}
 
 }
