@@ -1,9 +1,9 @@
 # Report
 ## Chapter 2.1
 ### 1 and 2)
-* StrinField : A field that is indexed but not tokenized (the entire String value is indexed as a single token).
+* StrinField : A field that is indexed but not tokenized (the entire String value is indexed as a single token). No term frequency or positional informations.
 * LongPoint : A field that indexes long values for efficient range filtering and sorting.
-* TextField : A field that is indexed and tokenized, without term vectors.
+* TextField : A field that is indexed and tokenized, without term vectors. Not stored.
 
 ### 3)
 It seems that the StandardAnalyser (https://lucene.apache.org/core/7_3_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) class proceeds to a suppresion of stop words in the query. 
@@ -24,7 +24,8 @@ In the demo example the search is case-insentive.
 Indeed the StandardAnalyser class uses a LowerCaseFilter which converts all the words of the query into lower case. 
     
 ### 6)  
-The removal of stop words takes place first. Indeed there is no interest ito perform the stemming on the stop words to delete them later.
+The removal of stop words takes place first. Indeed there is no interest into perform the stemming on the stop words to delete them later.
+Note that if you change the processing order of stemming and stop word deletion the result may be different.
 
 ## Chapter 3.1
 ### 1
@@ -36,74 +37,131 @@ It is a per-document inverted index and provides functionality to find all the t
 Definition from : https://medium.com/@Alibaba_Cloud/analysis-of-lucene-basic-concepts-5ff5d8b90a53
 
 ### 2
-The IndexReader class has the following methods :
+To store term vector : 
+```
+fieldType.setIndexOptions(IndexOptions.DOCS);
+fieldType.setStoreTermVectorOffsets(true);
+fieldType.setStoreTermVectors(true);
+```
+
+To read the term vector : 
 * getTermVector(int docID, String field) -> get one term vector
 * getTermVectors(int docID) -> get all term vectors
 
 ### 3
-* Size without term vector : 472 Ko
-* Size with term vector : 1.16 Mo
+* Size without term vector : 669 Ko
+* Size with term vector : 1.35 Mo
 
 It can be seen that the memory size of the index is larger with the term vector.
 
 ### Code
-Main.java 
-```java
-private static Analyzer getAnalyzer() {
-	return new StandardAnalyzer();
-	}
-```
-
 CACMIndexer.java
 ```java
 @Override
-public void onNewDocument(Long id, String authors, String title, String summary) {
-    if (summary != null) {
+	public void onNewDocument(Long id, String authors, String title, String summary) {
 
-        Document doc = new Document();
-        doc.add(new LongPoint("id", id));
-        doc.add(new TextField("authors", authors, Field.Store.YES));
-        doc.add(new TextField("title", title, Field.Store.YES));
+		Document doc = new Document();
 
-        FieldType fieldType = new FieldType();
-        fieldType.setIndexOptions(IndexOptions.DOCS);
-        fieldType.setStoreTermVectorOffsets(true);
-        fieldType.setStoreTermVectors(true);
-        doc.add(new Field("summary", summary, fieldType));
+		doc.add(new LongPoint("id", id));
+		doc.add(new StringField("author", authors, Field.Store.YES));
+		doc.add(new TextField("title", title, Field.Store.YES));
 
-        try {
-            this.indexWriter.addDocument(doc);
+		if (summary != null) {
+			FieldType fieldType = new FieldType();
+			fieldType.setIndexOptions(IndexOptions.DOCS);	
+			fieldType.setStoreTermVectorOffsets(true);// Store Offset
+			fieldType.setStoreTermVectors(true);// Store term vector
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+			doc.add(new Field("summary", summary, fieldType));
+		}
+			try {
+				this.indexWriter.addDocument(doc);
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+
+	}
 ```
 
+## Chapter 3.2
+* WhitespaceAnalyzer() -> Separation of text from spaces
+	* The number of indexed documents and indexed terms : 3203 / 34272
+	* The number of indexed terms in the summary field :
+	* The top 10 frequent terms of the summary field in the index : 26821 
+	* The size of the index on disk : 1.5 Mo
+	* The required time for indexing :
+	
+* EnglishAnalyzer() -> Analyzer for English and stop word removing
+	* The number of indexed documents and indexed terms : 
+	* The number of indexed terms in the summary field :
+	* The top 10 frequent terms of the summary field in the index : 
+	* The size of the index on disk : 1.2 Mo
+	* The required time for indexing :
+	
+* ShingleAnalyzerWrapper() -> 1-gram and 2-gram
+	* The number of indexed documents and indexed terms : 
+	* The number of indexed terms in the summary field :
+	* The top 10 frequent terms of the summary field in the index : 
+	* The size of the index on disk : 
+	* The required time for indexing :
+	
+* ShingleAnalyzerWrapper() -> 1-gram and 3-gram
+	* The number of indexed documents and indexed terms : 
+	* The number of indexed terms in the summary field :
+	* The top 10 frequent terms of the summary field in the index : 
+	* The size of the index on disk : 
+	* The required time for indexing :
+	
+* StopAnalyzer() -> Letter tokenization, Lower case filter and stop word removal
+	* The number of indexed documents and indexed terms : 
+	* The number of indexed terms in the summary field :
+	* The top 10 frequent terms of the summary field in the index : 
+	* The size of the index on disk : 1.2
+	* The required time for indexing :
+
 ## Chapter 3.3
-### 1
 QueriesPerformer.java
 ```java
 public void printTopRankingTerms(String field, int numTerms) {
-
 		
-    try {
-        DocFreqComparator cmp = new HighFreqTerms.DocFreqComparator();
-        TermStats[] highFreqTerms;
-        highFreqTerms = HighFreqTerms.getHighFreqTerms(indexReader, numTerms, field, cmp);
-        System.out.println("Top ranking terms for field ["  + field +"] are: ");
-        
-        for(TermStats ts : highFreqTerms)
-        {				
-            System.out.println("Term : " + ts.termtext.utf8ToString());
-            System.out.println("Term frequency : " + ts.docFreq);
-        }
-        
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-}
+		try {
+			DocFreqComparator cmp = new HighFreqTerms.DocFreqComparator();
+			TermStats[] highFreqTerms;
+			highFreqTerms = HighFreqTerms.getHighFreqTerms(indexReader, numTerms, field, cmp);
+			System.out.println("Top ranking terms for field ["  + field +"] are: ");
+			
+			int i = 0;
+			for(TermStats ts : highFreqTerms)
+			{
+				i++;
+				System.out.println(i + ") " + ts.termtext.utf8ToString() + " : " + ts.docFreq);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 ```
+
+### 1
+1. "" (No author) : 84
+
+### 2
+1. Incomplete Elliptic Integrals (Algorithm 73) : 5
+2. Hidden-Line Plotting Program (Algorithm R420) : 5
+3. Glossary of Computer Engineering and Programming Terminology : 5
+4. A Set of Test Matrices (Algorithm 52) : 5
+5. Simpson's Integration (Algorithm 84) : 4
+6. Normal Curve Integral (Algorithm 304 [S15]) : 4
+7. Matrix Inversion (Algorithm 58) : 4
+8. Evaluation of Determinant (Algorithm 41) : 4
+9. Direct Search (Algorithm 178 [E4]) : 4
+10. Critical Path Scheduling (Algorithm 40) : 4
+
+## Chapter 3.4
+
 
 ## Chapter 3.5
 MySimilarity.java
@@ -120,7 +178,7 @@ public class MySimilarity extends ClassicSimilarity {
 	}
 
 	public float idf(long docFreq, long numDocs) {
-		return (float) (Math.log10(numDocs/docFreq+1)+1);
+		return (float) (Math.log10(numDocs/(float)docFreq+1)+1);
 	}
 
 	public float lengthNorm(int numTerms) {

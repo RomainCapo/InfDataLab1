@@ -60,7 +60,7 @@ public class Main {
 	}
 
 	private static void readingIndex(QueriesPerformer queriesPerformer) {
-		queriesPerformer.printTopRankingTerms("author", 10);
+		//queriesPerformer.printTopRankingTerms("author", 10);
 		queriesPerformer.printTopRankingTerms("title", 10);
 	}
 
@@ -85,17 +85,17 @@ public class Main {
 		// For the next part "Using different Analyzers" modify this method
 		// and return the appropriate Analyzers asked.
 
-//		return new StandardAnalyzer(); //   1.16 M
+		return new StandardAnalyzer(); //   1.16 M
 //		return new WhitespaceAnalyzer(); // 1.5  M
 //		return new EnglishAnalyzer(); // 1.2 M
 //		return new ShingleAnalyzerWrapper(new StandardAnalyzer(), 1);
-		Path cw = FileSystems.getDefault().getPath("common_words.txt"); // 1.2 M
-		try {
-			return new StopAnalyzer(cw);
+		//Path cw = FileSystems.getDefault().getPath("common_words.txt"); // 1.2 M
+		/*try {
+			//return new StopAnalyzer(cw);
 		} catch (Exception e) {
 			System.out.println(e);
 			return null;
-		}
+		}*/
 
 	}
 

@@ -6,12 +6,14 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.FieldType;
 import org.apache.lucene.document.LongPoint;
+import org.apache.lucene.document.StoredField;
 import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexOptions;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
+import org.apache.lucene.queries.function.valuesource.LongFieldSource;
 import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
@@ -43,11 +45,11 @@ public class CACMIndexer implements ParserListener {
 		if (similarity != null)
 			iwc.setSimilarity(similarity);
 		// 1.3. create index writer
-//		Path path = FileSystems.getDefault().getPath("index");
+		Path path = FileSystems.getDefault().getPath("index");
 //		Path path = FileSystems.getDefault().getPath("whiteSpaceAnalyzer");
 //		Path path = FileSystems.getDefault().getPath("englishAnalyzer");
 //		Path path = FileSystems.getDefault().getPath("englishAnalyzer");
-		Path path = FileSystems.getDefault().getPath("stopAnalyzer");
+		//Path path = FileSystems.getDefault().getPath("stopAnalyzer");
 		try {
 			this.dir = FSDirectory.open(path);
 			this.indexWriter = new IndexWriter(dir, iwc);
@@ -65,20 +67,16 @@ public class CACMIndexer implements ParserListener {
 		// TODO student: add to the document "doc" the fields given in
 		// parameters. You job is to use the right Field and FieldType
 		// for these parameters.
-		doc.add(new LongPoint("id", id));
+		doc.add(new StoredField("id", id));
 		doc.add(new StringField("author", authors, Field.Store.YES));
-		doc.add(new TextField("title", title, Field.Store.YES));
-
-
-			FieldType fieldType = new FieldType();
-			// ??
-			fieldType.setIndexOptions(IndexOptions.DOCS);
-			// on stock les offsets
-			fieldType.setStoreTermVectorOffsets(true);
-			// on stock les term vectors
-			fieldType.setStoreTermVectors(true);
+		doc.add(new StringField("title", title, Field.Store.YES));
 
 		if (summary != null) {
+			FieldType fieldType = new FieldType();
+			fieldType.setIndexOptions(IndexOptions.DOCS);	
+			fieldType.setStoreTermVectorOffsets(true);// Store Offset
+			fieldType.setStoreTermVectors(true);// Store term vector
+
 			doc.add(new Field("summary", summary, fieldType));
 		}
 			try {

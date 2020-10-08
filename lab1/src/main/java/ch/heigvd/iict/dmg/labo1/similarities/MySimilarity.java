@@ -11,12 +11,11 @@ public class MySimilarity extends ClassicSimilarity {
 	}
 
 	public float idf(long docFreq, long numDocs) {
-		return (float) (Math.log10(numDocs/docFreq+1)+1);
+		return (float) (Math.log10(numDocs/(float)docFreq+1)+1);
 
 	}
 
 	public float lengthNorm(int numTerms) {
 		return 1;
-
 	}
 }

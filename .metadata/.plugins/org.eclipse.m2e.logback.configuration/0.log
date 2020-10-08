@@ -367,3 +367,128 @@
 2020-10-04 22:20:23,939 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@650339f5{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
 2020-10-04 22:20:23,940 [Stop Help Server] INFO  org.eclipse.jetty.server.session - node0 Stopped scavenging
 2020-10-04 22:20:23,948 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@41e3c86{/help,null,UNAVAILABLE}
+2020-10-08 14:35:34,788 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2020-10-08 14:35:38,123 [Worker-9: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:35:38,134 [Worker-9: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 14:35:38,138 [Worker-9: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:35:38,148 [Worker-9: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 14:43:12,747 [Worker-21: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:43:12,754 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 14:43:12,755 [Worker-21: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:43:12,761 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 14:51:15,697 [Start Help Server] INFO  org.eclipse.jetty.util.log - Logging initialized @956197ms to org.eclipse.jetty.util.log.Slf4jLog
+2020-10-08 14:51:15,876 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-9.4.29.v20200521; built: 2020-05-27T11:26:53.365Z; git: 77c232aed8a45c818fd27232278d9f95a021095e; jvm 11+28
+2020-10-08 14:51:15,897 [Start Help Server] INFO  org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+2020-10-08 14:51:15,898 [Start Help Server] INFO  org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+2020-10-08 14:51:15,899 [Start Help Server] INFO  org.eclipse.jetty.server.session - node0 Scavenging every 600000ms
+2020-10-08 14:51:15,929 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@3e1f680a{/help,null,AVAILABLE}
+2020-10-08 14:51:15,945 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@433e5ea5{HTTP/1.1, (http/1.1)}{127.0.0.1:58924}
+2020-10-08 14:51:15,946 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @956447ms
+2020-10-08 14:51:15,946 [Start Help Server] INFO  org.eclipse.jetty.server.session - node0 Scavenging every 660000ms
+2020-10-08 14:52:51,456 [Worker-22: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:52:51,461 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 14:52:51,463 [Worker-22: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:52:51,468 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 14:52:59,660 [Worker-22: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:52:59,665 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 14:52:59,666 [Worker-22: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:52:59,671 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 14:53:12,379 [Worker-23: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:53:12,386 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 14:53:12,387 [Worker-23: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:53:12,391 [Worker-23: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 14:53:13,614 [Worker-23: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:53:13,620 [Worker-23: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 14:53:13,621 [Worker-23: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:53:13,627 [Worker-23: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 14:53:20,708 [Worker-22: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:53:20,713 [Worker-22: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 14:53:20,714 [Worker-22: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:53:20,719 [Worker-22: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 14:53:53,823 [Worker-22: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:53:53,828 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 14:53:53,830 [Worker-22: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:53:53,835 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 14:54:07,027 [Worker-3: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:54:07,032 [Worker-3: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 14:54:07,033 [Worker-3: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:54:07,038 [Worker-3: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 14:54:26,418 [Worker-3: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:54:26,430 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 14:54:26,431 [Worker-3: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:54:26,441 [Worker-3: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 14:59:44,071 [Worker-24: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:59:44,091 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 14:59:44,094 [Worker-24: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 14:59:44,106 [Worker-24: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:05:31,824 [Worker-26: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:05:31,829 [Worker-26: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:05:31,830 [Worker-26: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:05:31,835 [Worker-26: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:10:29,448 [Worker-26: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:10:29,453 [Worker-26: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:10:29,454 [Worker-26: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:10:29,459 [Worker-26: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:12:17,475 [Worker-35: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:12:17,481 [Worker-35: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:12:17,482 [Worker-35: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:12:17,486 [Worker-35: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:12:50,275 [Worker-34: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:12:50,280 [Worker-34: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:12:50,281 [Worker-34: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:12:50,286 [Worker-34: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:12:58,983 [Worker-34: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:12:58,989 [Worker-34: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:12:58,992 [Worker-34: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:12:59,001 [Worker-34: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:13:12,020 [Worker-34: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:13:12,024 [Worker-34: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:13:12,026 [Worker-34: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:13:12,030 [Worker-34: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:14:17,447 [Worker-35: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:14:17,461 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:14:17,462 [Worker-35: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:14:17,473 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:14:24,928 [Worker-30: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:14:24,933 [Worker-30: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:14:24,934 [Worker-30: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:14:24,939 [Worker-30: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:14:41,680 [Worker-30: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:14:41,686 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:14:41,687 [Worker-30: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:14:41,692 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:15:24,589 [Worker-26: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:15:24,594 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:15:24,595 [Worker-26: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:15:24,600 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:22:18,594 [Worker-26: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:22:18,604 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:22:18,605 [Worker-26: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:22:18,614 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:22:24,723 [Worker-35: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:22:24,728 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:22:24,729 [Worker-35: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:22:24,733 [Worker-35: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:22:41,914 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:22:41,925 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:22:41,926 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:22:41,935 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:52:54,595 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:52:54,606 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:52:54,608 [Worker-37: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:52:54,623 [Worker-37: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:53:10,963 [Worker-39: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:53:10,969 [Worker-39: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:53:10,970 [Worker-39: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:53:10,975 [Worker-39: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:53:34,426 [Worker-41: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:53:34,432 [Worker-41: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:53:34,433 [Worker-41: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:53:34,438 [Worker-41: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:54:06,228 [Worker-26: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:54:06,234 [Worker-26: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:54:06,235 [Worker-26: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:54:06,240 [Worker-26: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 15:56:55,061 [Worker-42: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:56:55,066 [Worker-42: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-08 15:56:55,067 [Worker-42: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
