@@ -492,3 +492,33 @@
 2020-10-08 15:56:55,061 [Worker-42: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2020-10-08 15:56:55,066 [Worker-42: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
 2020-10-08 15:56:55,067 [Worker-42: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-08 15:56:55,072 [Worker-42: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-08 16:17:51,047 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@433e5ea5{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2020-10-08 16:17:51,048 [Stop Help Server] INFO  org.eclipse.jetty.server.session - node0 Stopped scavenging
+2020-10-08 16:17:51,059 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@3e1f680a{/help,null,UNAVAILABLE}
+2020-10-08 20:27:44,049 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-10-09 09:09:22,067 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-10-09 09:16:08,286 [Start Help Server] INFO  org.eclipse.jetty.util.log - Logging initialized @428152ms to org.eclipse.jetty.util.log.Slf4jLog
+2020-10-09 09:16:08,446 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-9.4.29.v20200521; built: 2020-05-27T11:26:53.365Z; git: 77c232aed8a45c818fd27232278d9f95a021095e; jvm 11+28
+2020-10-09 09:16:08,470 [Start Help Server] INFO  org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+2020-10-09 09:16:08,470 [Start Help Server] INFO  org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+2020-10-09 09:16:08,471 [Start Help Server] INFO  org.eclipse.jetty.server.session - node0 Scavenging every 660000ms
+2020-10-09 09:16:08,492 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@8928705{/help,null,AVAILABLE}
+2020-10-09 09:16:08,506 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@55238f37{HTTP/1.1, (http/1.1)}{127.0.0.1:50289}
+2020-10-09 09:16:08,506 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @428373ms
+2020-10-09 09:16:08,506 [Start Help Server] INFO  org.eclipse.jetty.server.session - node0 Scavenging every 726000ms
+2020-10-09 09:16:27,498 [Worker-21: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-09 09:16:27,503 [Worker-21: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-09 09:16:27,505 [Worker-21: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-09 09:16:27,509 [Worker-21: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-09 09:24:06,271 [Worker-8: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-09 09:24:06,278 [Worker-8: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-09 09:24:06,280 [Worker-8: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-09 09:24:06,285 [Worker-8: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-09 09:25:59,399 [Worker-24: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-09 09:25:59,407 [Worker-24: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-09 09:25:59,409 [Worker-24: Launching Main] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-09 09:25:59,417 [Worker-24: Launching Main] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-09 09:26:41,892 [Worker-8: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-09 09:26:41,899 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-09 09:26:41,900 [Worker-8: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!

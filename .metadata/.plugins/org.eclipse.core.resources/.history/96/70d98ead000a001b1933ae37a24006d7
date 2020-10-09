@@ -164,22 +164,6 @@ public void printTopRankingTerms(String field, int numTerms) {
 
 
 ## Chapter 3.5
-
-* With MySimilarity class :
-	* 123) Compilation for Two Computers with NELIAC [score=4.2883167]
-	* 730) MIRFAG: A Compiler Based on StandardMathematical Notation And Plain English [score=4.2883167]
-	* 1135) A General Business-Oriented Language Based on Decision Expressions* [score=4.2883167]
-	* 1162) An Assembly Language for Reprogramming [score=4.2883167]
-	* 1460) Evolution of the Meta-Assembly Program [score=4.2883167]
-	* 1465) Program Translation Viewed as a General Data Processing Problem [score=4.2883167]
-	* 1646) DITRAN-A Compiler Emphasizing Diagnostics [score=4.2883167]
-	* 1647) WATFOR-The University of Waterloo FORTRAN IV Compiler [score=4.2883167]
-	* 1788) Toward a General Processor for Programming Languages [score=4.2883167]
-	* 2054) On the Feasibility of Voice Input toan On-line Computer Processing System [score=4.2883167]
-
-* With ClassicSimilarity class :
-
-
 MySimilarity.java
 ```java
 package ch.heigvd.iict.dmg.labo1.similarities;

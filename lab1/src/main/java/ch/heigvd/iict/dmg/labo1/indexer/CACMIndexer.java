@@ -68,6 +68,12 @@ public class CACMIndexer implements ParserListener {
 		// parameters. You job is to use the right Field and FieldType
 		// for these parameters.
 		doc.add(new StoredField("id", id));
+		
+		for (String author : authors.split(";")) {
+			doc.add(new StringField("author", author, Field.Store.YES));
+
+		}
+		
 		doc.add(new StringField("author", authors, Field.Store.YES));
 		doc.add(new StringField("title", title, Field.Store.YES));
 
