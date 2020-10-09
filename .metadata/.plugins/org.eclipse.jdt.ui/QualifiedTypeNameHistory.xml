@@ -30,4 +30,5 @@
     <fullyQualifiedTypeName name="org.apache.lucene.document.Field"/>
     <fullyQualifiedTypeName name="org.apache.lucene.document.Field.Store"/>
     <fullyQualifiedTypeName name="org.apache.lucene.document.StoredField"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.search.similarities.ClassicSimilarity"/>
 </qualifiedTypeNameHistroy>

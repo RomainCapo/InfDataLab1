@@ -178,16 +178,7 @@ public void printTopRankingTerms(String field, int numTerms) {
 	* 2054) On the Feasibility of Voice Input toan On-line Computer Processing System [score=4.2883167]
 
 * With ClassicSimilarity class :
-	* 1460) Evolution of the Meta-Assembly Program [score=1.3102407]
-	* 718) An Experiment in Automatic Verification of Programs [score=1.1471021]
-	* 3189) An Algebraic Compiler for the FORTRAN Assembly Program [score=1.129842]
-	* 123) Compilation for Two Computers with NELIAC [score=1.018426]
-	* 730) MIRFAG: A Compiler Based on StandardMathematical Notation And Plain English [score=0.978472]
-	* 1465) Program Translation Viewed as a General Data Processing Problem [score=0.978472]
-	* 1122) A Note on Some Compiling Algorithms [score=0.91507095]
-	* 1646) DITRAN-A Compiler Emphasizing Diagnostics [score=0.91090786]
-	* 1162) An Assembly Language for Reprogramming [score=0.8556489]
-	* 1788) Toward a General Processor for Programming Languages [score=0.8315413]
+
 
 MySimilarity.java
 ```java

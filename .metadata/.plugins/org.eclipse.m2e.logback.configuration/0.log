@@ -522,3 +522,11 @@
 2020-10-09 09:26:41,892 [Worker-8: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2020-10-09 09:26:41,899 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
 2020-10-09 09:26:41,900 [Worker-8: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-09 09:26:41,904 [Worker-8: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-09 10:22:28,404 [Worker-26: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-09 10:22:28,409 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\main\resources
+2020-10-09 10:22:28,411 [Worker-26: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-10-09 10:22:28,418 [Worker-26: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\romain.capocasa\Documents\InfDataLab1\lab1\src\test\resources
+2020-10-09 10:22:28,804 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@55238f37{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2020-10-09 10:22:28,804 [Stop Help Server] INFO  org.eclipse.jetty.server.session - node0 Stopped scavenging
+2020-10-09 10:22:28,823 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@8928705{/help,null,UNAVAILABLE}

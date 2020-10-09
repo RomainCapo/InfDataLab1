@@ -3330,3 +3330,9 @@ java.lang.IllegalStateException: Conflicting handlers: {[ActionHandler(org.eclip
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2020-10-09 09:26:41.901
 !MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2020-10-09 10:22:28.405
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2020-10-09 10:22:28.412
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
