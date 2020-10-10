@@ -52,7 +52,7 @@ To read the term vector :
 * Size without term vector : 669 Ko
 * Size with term vector : 1.35 Mo
 
-It can be seen that the memory size of the index is larger with the term vector.
+It can be seen that the (memory) size of the index is larger with the term vector.
 
 ### Code
 CACMIndexer.java

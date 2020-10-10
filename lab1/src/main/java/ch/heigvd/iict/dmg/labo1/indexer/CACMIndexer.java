@@ -45,11 +45,24 @@ public class CACMIndexer implements ParserListener {
 		if (similarity != null)
 			iwc.setSimilarity(similarity);
 		// 1.3. create index writer
-		Path path = FileSystems.getDefault().getPath("index");
-//		Path path = FileSystems.getDefault().getPath("whiteSpaceAnalyzer");
-//		Path path = FileSystems.getDefault().getPath("englishAnalyzer");
-//		Path path = FileSystems.getDefault().getPath("englishAnalyzer");
-		//Path path = FileSystems.getDefault().getPath("stopAnalyzer");
+
+		System.out.println("the analyzer is : " + this.analyzer.toString());
+		Path path = null;
+		if(this.analyzer.toString().contains("StandardAnalyzer")){
+			 path = FileSystems.getDefault().getPath("StandardAnalyzer");
+		} else if(this.analyzer.toString().contains("StopAnalyzer")){
+			 path = FileSystems.getDefault().getPath("StopAnalyzer");
+		} else if(this.analyzer.toString().contains("WhitespaceAnalyzer")) {
+			 path = FileSystems.getDefault().getPath("WhitespaceAnalyzer");
+		} else if(this.analyzer.toString().contains("EnglishAnalyzer")) {
+			 path = FileSystems.getDefault().getPath("EnglishAnalyzer");
+		} else if(this.analyzer.toString().contains("ShingleAnalyzerWrapper")){
+			path = FileSystems.getDefault().getPath("ShingleAnalyzerWrapper");
+		}
+
+
+
+
 		try {
 			this.dir = FSDirectory.open(path);
 			this.indexWriter = new IndexWriter(dir, iwc);
@@ -61,7 +74,7 @@ public class CACMIndexer implements ParserListener {
 	@Override
 	public void onNewDocument(Long id, String authors, String title, String summary) {
 
-
+		// 1.4 create document
 		Document doc = new Document();
 
 		// TODO student: add to the document "doc" the fields given in

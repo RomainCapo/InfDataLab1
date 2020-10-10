@@ -35,7 +35,10 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 
 		// 1.1. create an analyzer
-		Analyzer analyser = getAnalyzer();
+		double beforeTime = System.currentTimeMillis();
+		Analyzer analyser = getAnalyzer("english");
+		double timeTaken = System.currentTimeMillis() - beforeTime;
+		System.out.println("Time taken in ms : " + timeTaken);
 		
 		// TODO student "Tuning the Lucene Score"
 		//Similarity similarity = new ClassicSimilarity();
@@ -78,7 +81,7 @@ public class Main {
 		// the top 10 results.
 	}
 
-	private static Analyzer getAnalyzer() {
+	private static Analyzer getAnalyzer(String analyzerName) throws IOException {
 	    // TODO student... For the part "Indexing and Searching CACM collection
 		// - Indexing" use, as indicated in the instructions,
 		// the StandardAnalyzer class.
@@ -86,17 +89,25 @@ public class Main {
 		// For the next part "Using different Analyzers" modify this method
 		// and return the appropriate Analyzers asked.
 
-		return new StandardAnalyzer(); //   1.16 M
+		if(analyzerName == "stop") {
+			Path path = FileSystems.getDefault().getPath("common_words.txt");
+			return new StopAnalyzer(path);
+		} else if(analyzerName == "whitespace") {
+			return new WhitespaceAnalyzer();
+		} else if(analyzerName == "english") {
+			return new EnglishAnalyzer();
+		} else if(analyzerName == "shingle12") {
+			return new ShingleAnalyzerWrapper(new StandardAnalyzer(), 2);
+
+
+		}
+		return new StandardAnalyzer();
+
+		//return new StandardAnalyzer(); //   1.16 M
 //		return new WhitespaceAnalyzer(); // 1.5  M
 //		return new EnglishAnalyzer(); // 1.2 M
 //		return new ShingleAnalyzerWrapper(new StandardAnalyzer(), 1);
-		//Path cw = FileSystems.getDefault().getPath("common_words.txt"); // 1.2 M
-		/*try {
-			//return new StopAnalyzer(cw);
-		} catch (Exception e) {
-			System.out.println(e);
-			return null;
-		}*/
+
 
 	}
 
