@@ -57,7 +57,7 @@ public class CACMIndexer implements ParserListener {
 		} else if(this.analyzer.toString().contains("EnglishAnalyzer")) {
 			 path = FileSystems.getDefault().getPath("EnglishAnalyzer");
 		} else if(this.analyzer.toString().contains("ShingleAnalyzerWrapper")){
-			path = FileSystems.getDefault().getPath("ShingleAnalyzerWrapper");
+			path = FileSystems.getDefault().getPath("ShingleAnalyzerWrapper1");
 		}
 
 

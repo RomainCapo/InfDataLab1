@@ -26,9 +26,6 @@ public class QueriesPerformer {
 	private IndexSearcher indexSearcher = null;
 
 	public QueriesPerformer(Analyzer analyzer, Similarity similarity) {
-		// 2.1 create query parser
-		QueryParser parser = new QueryParser("summary", analyzer);
-
 
 		this.analyzer = analyzer;
 
@@ -74,11 +71,12 @@ public class QueriesPerformer {
 	public void query(String q) {
 		// 2.1 create query parser
 		QueryParser parser = new QueryParser("summary", analyzer);
-
+		System.out.println("Searching for " + q);
 		try {
 			final int NB_SEARCH = 10;
 			//Query query = new QueryBuilder(this.analyzer).createBooleanQuery("summary", q);
 			Query query = parser.parse(q);
+			// 3.3. search query
 			TopDocs topDocs = indexSearcher.search(query, NB_SEARCH);
 			for(ScoreDoc topDoc: topDocs.scoreDocs) {
 				Document doc = indexSearcher.doc(topDoc.doc);
@@ -88,7 +86,7 @@ public class QueriesPerformer {
 			e.printStackTrace();
 		}
 
-		System.out.println("Searching for [" + q + "]");
+
 	}
 
 	public void close() {

@@ -36,7 +36,7 @@ public class Main {
 
 		// 1.1. create an analyzer
 		double beforeTime = System.currentTimeMillis();
-		Analyzer analyser = getAnalyzer("english");
+		Analyzer analyser = getAnalyzer("shingle12");
 		double timeTaken = System.currentTimeMillis() - beforeTime;
 		System.out.println("Time taken in ms : " + timeTaken);
 		
@@ -97,8 +97,11 @@ public class Main {
 		} else if(analyzerName == "english") {
 			return new EnglishAnalyzer();
 		} else if(analyzerName == "shingle12") {
-			return new ShingleAnalyzerWrapper(new StandardAnalyzer(), 2);
+//			return new ShingleAnalyzerWrapper(new StandardAnalyzer(), 2);
+			return new ShingleAnalyzerWrapper(new StandardAnalyzer() , 2, 2, "", true, true, "");
 
+		} else if(analyzerName == "shingle13") {
+			return new ShingleAnalyzerWrapper(new StandardAnalyzer() , 3, 3, "", true, true, "");
 
 		}
 		return new StandardAnalyzer();
