@@ -47,9 +47,6 @@ public class QueriesPerformer {
 	}
 
 	public void printTopRankingTerms(String field, int numTerms) {
-		// TODO student
-		// This methods print the top ranking term for a field.
-		// See "Reading Index".
 
 		try {
 			DocFreqComparator cmp = new HighFreqTerms.DocFreqComparator();
@@ -69,24 +66,23 @@ public class QueriesPerformer {
 	}
 
 	public void query(String q) {
+		final int NB_SEARCH = 10;
 		// 2.1 create query parser
-		QueryParser parser = new QueryParser("summary", analyzer);
 		System.out.println("Searching for " + q);
+		QueryParser parser = new QueryParser("summary", analyzer);
 		try {
-			final int NB_SEARCH = 10;
-			Query query = new QueryBuilder(this.analyzer).createBooleanQuery("summary", q);
-			//Query query = parser.parse(q);
-			// 3.3. search query
-			TopDocs topDocs = indexSearcher.search(query, NB_SEARCH);
-			for(ScoreDoc topDoc: topDocs.scoreDocs) {
-				Document doc = indexSearcher.doc(topDoc.doc);
-				System.out.println(doc.get("id") + ": " + doc.get("title") + " (" + topDoc.score + ")");
+			Query query = parser.parse(q);
+			ScoreDoc[] scores = indexSearcher.search(query, NB_SEARCH).scoreDocs;
+			for(ScoreDoc d : scores) {
+				Document doc = indexSearcher.doc(d.doc);
+				System.out.println(doc.get("id") + ": " + doc.get("title") + " (" + d.score + ")");
 			}
+		} catch (ParseException e) {
+			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-
+		
 	}
 
 	public void close() {

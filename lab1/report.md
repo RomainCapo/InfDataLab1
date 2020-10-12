@@ -1,4 +1,9 @@
-# Report
+# Report T-InfData Labo1
+* Capocasale Romain
+* Selajdin Bilali
+* Date : 12.10.2020
+* Course : T-InfData
+
 ## Chapter 2.1
 ### 1 and 2)
 * StrinField : A field that is indexed but not tokenized (the entire String value is indexed as a single token). No term frequency or positional informations.
@@ -229,54 +234,152 @@ public void printTopRankingTerms(String field, int numTerms) {
 ```
 
 ## Chapter 3.4
+### Information Retrival
+```
+1516: Automatic Data Compression (3.6460404)
+3134: The Use of Normal Multiplication Tablesfor Information Storage and Retrieval (3.6460404)
+2870: A Lattice Model of Secure Information Flow (3.483682)
+1267: Performance of Systems Used for Data TransmissionTransfer Rate of Information Bits -An ASA TutorialStandard (3.284971)
+1652: A Code for Non-numeric Information ProcessingApplications in Online Systems (3.284971)
+1032: Theoretical Considerations in Information Retrieval Systems (3.0287883)
+1194: Establishment of the ACM Repository and Principlesof the IR System Applied to its Operation (3.0287883)
+1457: Data Manipulation and Programming Problemsin Automatic Information Retrieval (3.0287883)
+1745: A Position Paper on Computing and Communications (3.0287883)
+2307: Dynamic Document Processing (3.0287883)
+```
 
+### Information AND Retrival
+No result
+
+### Information AND Retrival NOT Database
+```
+3134: The Use of Normal Multiplication Tablesfor Information Storage and Retrieval (6.855922)
+1032: Theoretical Considerations in Information Retrieval Systems (6.6731195)
+1457: Data Manipulation and Programming Problemsin Automatic Information Retrieval (6.6731195)
+891: Everyman's Information Retrieval System (6.312051)
+1699: Experimental Evaluation of InformationRetrieval Through a Teletypewriter (6.312051)
+2307: Dynamic Document Processing (6.2386703)
+1527: A Grammar Base Question Answering Procedure (5.8776007)
+1652: A Code for Non-numeric Information ProcessingApplications in Online Systems (5.7521563)
+1681: Easy English,a Language for InformationRetrieval Through a Remote Typewriter Console (5.6947985)
+2990: Effective Information Retrieval Using Term Accuracy (5.6947985)
+```
+
+### Info*
+```
+222: Coding Isomorphisms (1.0)
+272: A Storage Allocation Scheme for ALGOL 60 (1.0)
+396: Automation of Program  Debugging (1.0)
+397: A Card Format for Reference Files in Information Processing (1.0)
+409: CL-1, An Environment for a Compiler (1.0)
+440: Record Linkage (1.0)
+483: On the Nonexistence of a Phrase Structure Grammar for ALGOL 60 (1.0)
+616: An Information Algebra - Phase I Report-LanguageStructure Group of the CODASYL Development Committee (1.0)
+644: A String Language for Symbol Manipulation Based on ALGOL 60 (1.0)
+655: COMIT as an IR Language (1.0)
+```
+
+### "Information Retrieval"~5
+```
+891: Everyman's Information Retrieval System (5.877601)
+1457: Data Manipulation and Programming Problemsin Automatic Information Retrieval (5.877601)
+1699: Experimental Evaluation of InformationRetrieval Through a Teletypewriter (5.877601)
+2307: Dynamic Document Processing (5.3131714)
+1652: A Code for Non-numeric Information ProcessingApplications in Online Systems (4.517652)
+1935: Randomized Binary Search Technique (4.517652)
+2451: Design of Tree Structures for Efficient Querying (4.517652)
+2516: Hierarchical Storage in Information Retrieval (4.517652)
+2519: On the Problem of Communicating Complex Information (4.517652)
+2795: Sentence Paraphrasing from a Conceptual Base (4.517652)
+```
+
+Main.java
+```java
+private static void searching(QueriesPerformer queriesPerformer) {
+		// Example
+		queriesPerformer.query("query compiler");
+		queriesPerformer.query("\"Information Retrival\"");
+		queriesPerformer.query("Information Retrival");
+		queriesPerformer.query("Information Retrieval -Database");
+		queriesPerformer.query("Info*");
+		queriesPerformer.query("\"Information Retrieval\"~5");
+	}
+```
+
+QueryPerformer.java
+```java
+	public void query(String q) {
+		final int NB_SEARCH = 10;
+		// 2.1 create query parser
+		System.out.println("Searching for " + q);
+		QueryParser parser = new QueryParser("summary", analyzer);
+		try {
+			Query query = parser.parse(q);
+			ScoreDoc[] scores = indexSearcher.search(query, NB_SEARCH).scoreDocs;
+			for(ScoreDoc d : scores) {
+				Document doc = indexSearcher.doc(d.doc);
+				System.out.println(doc.get("id") + ": " + doc.get("title") + " (" + d.score + ")");
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+```
 
 ## Chapter 3.5
 
 * With MySimilarity class :
-	* 123) Compilation for Two Computers with NELIAC [score=4.2883167]
-	* 730) MIRFAG: A Compiler Based on StandardMathematical Notation And Plain English [score=4.2883167]
-	* 1135) A General Business-Oriented Language Based on Decision Expressions* [score=4.2883167]
-	* 1162) An Assembly Language for Reprogramming [score=4.2883167]
-	* 1460) Evolution of the Meta-Assembly Program [score=4.2883167]
-	* 1465) Program Translation Viewed as a General Data Processing Problem [score=4.2883167]
-	* 1646) DITRAN-A Compiler Emphasizing Diagnostics [score=4.2883167]
-	* 1647) WATFOR-The University of Waterloo FORTRAN IV Compiler [score=4.2883167]
-	* 1788) Toward a General Processor for Programming Languages [score=4.2883167]
-	* 2054) On the Feasibility of Voice Input toan On-line Computer Processing System [score=4.2883167]
+```
+2990: Effective Information Retrieval Using Term Accuracy (5.1278267)
+1976: Multi-attribute Retrieval with Combined Indexes (4.620015)
+2716: Optimizing the Performance of a Relational Algebra Database Interface (4.2597175)
+2722: Multidimensional Binary Search Trees Used for Associative Searching (4.2597175)
+2728: Consecutive Storage of Relevant Records with Redundancy (4.2597175)
+2534: Design and Implementation of a Diagnostic Compiler for PL/I (3.7561734)
+637: A NELIAC-Generated 7090-1401 Compiler (3.5419197)
+1215: Some Techniques Used in the ALCOR ILLINOIS 7090 (3.5419197)
+2652: Reduction of Compilation Costs Through Language Contraction (3.5419197)
+2897: A Case Study of a New Code Generation Technique for Compilers (3.5419197)
+```
 
 * With ClassicSimilarity class :
-	* 1460) Evolution of the Meta-Assembly Program [score=1.3102407]
-	* 718) An Experiment in Automatic Verification of Programs [score=1.1471021]
-	* 3189) An Algebraic Compiler for the FORTRAN Assembly Program [score=1.129842]
-	* 123) Compilation for Two Computers with NELIAC [score=1.018426]
-	* 730) MIRFAG: A Compiler Based on StandardMathematical Notation And Plain English [score=0.978472]
-	* 1465) Program Translation Viewed as a General Data Processing Problem [score=0.978472]
-	* 1122) A Note on Some Compiling Algorithms [score=0.91507095]
-	* 1646) DITRAN-A Compiler Emphasizing Diagnostics [score=0.91090786]
-	* 1162) An Assembly Language for Reprogramming [score=0.8556489]
-	* 1788) Toward a General Processor for Programming Languages [score=0.8315413]
+```
+2990: Effective Information Retrieval Using Term Accuracy (1.4831469)
+1215: Some Techniques Used in the ALCOR ILLINOIS 7090 (1.40438)
+2728: Consecutive Storage of Relevant Records with Redundancy (1.3196394)
+718: An Experiment in Automatic Verification of Programs (1.3136772)
+1122: A Note on Some Compiling Algorithms (1.3136772)
+3189: An Algebraic Compiler for the FORTRAN Assembly Program (1.1203077)
+799: Design of a Separable Transition-Diagram Compiler* (1.087828)
+205: Macro Instruction Extensions of Compiler Languages (1.0305332)
+2716: Optimizing the Performance of a Relational Algebra Database Interface (1.0221883)
+2652: Reduction of Compilation Costs Through Language Contraction (0.99304664)
+```
 
 MySimilarity.java
 ```java
-package ch.heigvd.iict.dmg.labo1.similarities;
-
-import org.apache.lucene.search.similarities.ClassicSimilarity;
-
 public class MySimilarity extends ClassicSimilarity {
 
-
+	@Override
 	public float tf(float freq) {
 		return (float) (1.0 + Math.log10(freq));
+
 	}
 
+	@Override
 	public float idf(long docFreq, long numDocs) {
 		return (float) (Math.log10(numDocs/(float)docFreq+1)+1);
-	}
 
+	}
+	
+	@Override
 	public float lengthNorm(int numTerms) {
 		return 1;
 	}
 }
+
 
 ```

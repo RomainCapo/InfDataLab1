@@ -1,0 +1,282 @@
+# Report
+## Chapter 2.1
+### 1 and 2)
+* StrinField : A field that is indexed but not tokenized (the entire String value is indexed as a single token). No term frequency or positional informations.
+* LongPoint : A field that indexes long values for efficient range filtering and sorting.
+* TextField : A field that is indexed and tokenized, without term vectors. Not stored.
+
+### 3)
+It seems that the StandardAnalyser (https://lucene.apache.org/core/7_3_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) class proceeds to a suppresion of stop words in the query. 
+
+Lucene provides a default stop words dictionary if no stop words list is provided in the StandardAnalyser class constructor.
+
+### 4)
+In the Lucene library, the following classes are available for stemming: 
+* PorterStemFilter
+* PorterStemmer
+* EnglishAnalyzer 
+
+ None of these classes are used in the command line demo. The stemming is not perform.
+
+### 5)
+In the demo example the search is case-insentive. 
+
+Indeed the StandardAnalyser class uses a LowerCaseFilter which converts all the words of the query into lower case. 
+    
+### 6)  
+The removal of stop words takes place first. Indeed there is no interest into perform the stemming on the stop words to delete them later.
+Note that if you change the processing order of stemming and stop word deletion the result may be different.
+
+## Chapter 3.1
+### 1
+    
+A term vector saves all the information related to a term, include the Term value, frequencies, positions.
+
+It is a per-document inverted index and provides functionality to find all the term information in the document according to document identifiant.
+
+Definition from : https://medium.com/@Alibaba_Cloud/analysis-of-lucene-basic-concepts-5ff5d8b90a53
+
+### 2
+To store term vector : 
+```
+fieldType.setIndexOptions(IndexOptions.DOCS);
+fieldType.setStoreTermVectorOffsets(true);
+fieldType.setStoreTermVectors(true);
+```
+
+To read the term vector : 
+* getTermVector(int docID, String field) -> get one term vector
+* getTermVectors(int docID) -> get all term vectors
+
+### 3
+* Size without term vector : 669 Ko
+* Size with term vector : 1.35 Mo
+
+It can be seen that the (memory) size of the index is larger with the term vector.
+
+
+CACMIndexer.java
+```java
+@Override
+public void onNewDocument(Long id, String authors, String title, String summary) {
+
+	Document doc = new Document();
+
+	doc.add(new StoredField("id", id));
+	
+	for (String author : authors.split(";")) {
+		doc.add(new StringField("authors", author, Field.Store.YES));
+
+	}
+	
+	doc.add(new TextField("title", title, Field.Store.YES));
+
+	if (summary != null) {
+		FieldType fieldType = new FieldType();
+		fieldType.setIndexOptions(IndexOptions.DOCS);	
+		fieldType.setStoreTermVectorOffsets(true);// Store Offset
+		fieldType.setStoreTermVectors(true);// Store term vector
+
+		doc.add(new Field("summary", summary, fieldType));
+	}
+		try {
+			this.indexWriter.addDocument(doc);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+
+}
+```
+
+## Chapter 3.2
+### 2 and 3)
+* WhitespaceAnalyzer() -> Separation of text from spaces
+	* The number of indexed documents and indexed terms : 3203 / 34272
+	* The number of indexed terms in the summary field : 26'821
+	* The top 10 frequent terms of the summary field in the index : of, the, is, a, and, to, in, for, The, are
+	* The size of the index on disk : 1.42 Mo
+	* The required time for indexing : 1135.0 ms
+	
+* EnglishAnalyzer() -> Analyzer for English and stop word removing
+	* The number of indexed documents and indexed terms : 3203 / 23010
+	* The number of indexed terms in the summary field : 16724
+	* The top 10 frequent terms of the summary field in the index : us, which, comput, program, system, present, describ, paper, method, can
+	* The size of the index on disk : 1.09 Mo
+	* The required time for indexing : 1483.0 ms
+	
+* ShingleAnalyzerWrapper() -> 1-gram and 2-gram
+	* The number of indexed documents and indexed terms : 3203 / 113908
+	* The number of indexed terms in the summary field : 95116
+	* The top 10 frequent terms of the summary field in the index : the, of, a, is, and, to, in, for, are, ofthe
+	* The size of the index on disk : 3.14 Mo
+	* The required time for indexing : 1657.0 ms
+	
+* ShingleAnalyzerWrapper() -> 1-gram and 3-gram
+	* The number of indexed documents and indexed terms : 3203 / 158363
+	* The number of indexed terms in the summary field : 137620
+	* The top 10 frequent terms of the summary field in the index : the, of, a, is, and, to, in, for, are, this
+	* The size of the index on disk : 7.3 Mo
+	* The required time for indexing : 1936.0 ms
+	
+* StopAnalyzer() -> Letter tokenization, Lower case filter and stop word removal
+	* The number of indexed documents and indexed terms : 3203 / 24663
+	* The number of indexed terms in the summary field : 18342
+	* The top 10 frequent terms of the summary field in the index :  system, computer, paper, presented, time, method, program, data, algorithm, discussed 
+	* The size of the index on disk : 1.05 Mo
+	* The required time for indexing : 926.0 ms
+
+Main.java
+```java
+public static void main(String[] args) throws IOException {
+
+		// 1.1. create an analyzer
+		double beforeTime = System.currentTimeMillis();
+		Analyzer analyser = getAnalyzer("stop");
+		
+		//Similarity similarity = new ClassicSimilarity();
+		Similarity similarity = new MySimilarity();
+		
+		CACMIndexer indexer = new CACMIndexer(analyser, similarity);
+		indexer.openIndex();
+		CACMParser parser = new CACMParser("documents/cacm.txt", indexer);
+		parser.startParsing();
+		indexer.finalizeIndex();
+		
+		double timeTaken = System.currentTimeMillis() - beforeTime;
+		System.out.println("Time taken in ms : " + timeTaken);
+
+		QueriesPerformer queriesPerformer = new QueriesPerformer(analyser, similarity);
+
+		// Section "Reading Index"
+		readingIndex(queriesPerformer);
+
+		// Section "Searching"
+		searching(queriesPerformer);
+
+		queriesPerformer.close();
+		
+
+	}
+	
+	...
+	
+private static Analyzer getAnalyzer(String analyzerName) throws IOException {
+
+		if(analyzerName == "stop") {
+			Path path = FileSystems.getDefault().getPath("common_words.txt");
+			return new StopAnalyzer(path);
+		} else if(analyzerName == "whitespace") {
+			return new WhitespaceAnalyzer();
+		} else if(analyzerName == "english") {
+			return new EnglishAnalyzer();
+		} else if(analyzerName == "shingle12") {
+			return new ShingleAnalyzerWrapper(new StandardAnalyzer() , 2, 2, "", true, true, "");
+
+		} else if(analyzerName == "shingle13") {
+			return new ShingleAnalyzerWrapper(new StandardAnalyzer() , 3, 3, "", true, true, "");
+
+		}
+		return new StandardAnalyzer();
+	}
+```
+
+### 4)
+1. The two Singhle analyzer take more place on the disk. This is due to the fact that these analysers store the same word several times. The indexing time is also longer. 
+
+2. Only the English analyzer and the Stop analyzer remove stop words. For the English analyzer it is even possible to specify its own stop word list. We notice that in the other analysers words like: the, of, is, a are stored and are even very frequent.
+
+3. Analysers using stop words take up less disk space as stop words are not stored. The two analyzers that take up the least storage are the English Analyzer and the Stop Analyzer, two analyzers that remove stop words. 
+
+## Chapter 3.3
+### 1
+1. "" (No author) : 84
+
+### 2
+1. algorithm : 1008
+2. comput : 392
+3. program : 307
+4. system : 280
+5. gener : 169
+6. method : 156
+7. languag : 144
+8. function : 142
+9. us : 123
+10. data : 110
+
+QueriesPerformer.java
+```java
+public void printTopRankingTerms(String field, int numTerms) {
+		
+		try {
+			DocFreqComparator cmp = new HighFreqTerms.DocFreqComparator();
+			TermStats[] highFreqTerms;
+			highFreqTerms = HighFreqTerms.getHighFreqTerms(indexReader, numTerms, field, cmp);
+			System.out.println("Top ranking terms for field ["  + field +"] are: ");
+			
+			int i = 0;
+			for(TermStats ts : highFreqTerms)
+			{
+				i++;
+				System.out.println(i + ") " + ts.termtext.utf8ToString() + " : " + ts.docFreq);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+```
+
+## Chapter 3.4
+
+
+## Chapter 3.5
+
+* With MySimilarity class :
+	* 123) Compilation for Two Computers with NELIAC [score=4.2883167]
+	* 730) MIRFAG: A Compiler Based on StandardMathematical Notation And Plain English [score=4.2883167]
+	* 1135) A General Business-Oriented Language Based on Decision Expressions* [score=4.2883167]
+	* 1162) An Assembly Language for Reprogramming [score=4.2883167]
+	* 1460) Evolution of the Meta-Assembly Program [score=4.2883167]
+	* 1465) Program Translation Viewed as a General Data Processing Problem [score=4.2883167]
+	* 1646) DITRAN-A Compiler Emphasizing Diagnostics [score=4.2883167]
+	* 1647) WATFOR-The University of Waterloo FORTRAN IV Compiler [score=4.2883167]
+	* 1788) Toward a General Processor for Programming Languages [score=4.2883167]
+	* 2054) On the Feasibility of Voice Input toan On-line Computer Processing System [score=4.2883167]
+
+* With ClassicSimilarity class :
+	* 1460) Evolution of the Meta-Assembly Program [score=1.3102407]
+	* 718) An Experiment in Automatic Verification of Programs [score=1.1471021]
+	* 3189) An Algebraic Compiler for the FORTRAN Assembly Program [score=1.129842]
+	* 123) Compilation for Two Computers with NELIAC [score=1.018426]
+	* 730) MIRFAG: A Compiler Based on StandardMathematical Notation And Plain English [score=0.978472]
+	* 1465) Program Translation Viewed as a General Data Processing Problem [score=0.978472]
+	* 1122) A Note on Some Compiling Algorithms [score=0.91507095]
+	* 1646) DITRAN-A Compiler Emphasizing Diagnostics [score=0.91090786]
+	* 1162) An Assembly Language for Reprogramming [score=0.8556489]
+	* 1788) Toward a General Processor for Programming Languages [score=0.8315413]
+
+MySimilarity.java
+```java
+package ch.heigvd.iict.dmg.labo1.similarities;
+
+import org.apache.lucene.search.similarities.ClassicSimilarity;
+
+public class MySimilarity extends ClassicSimilarity {
+
+
+	public float tf(float freq) {
+		return (float) (1.0 + Math.log10(freq));
+	}
+
+	public float idf(long docFreq, long numDocs) {
+		return (float) (Math.log10(numDocs/(float)docFreq+1)+1);
+	}
+
+	public float lengthNorm(int numTerms) {
+		return 1;
+	}
+}
+
+```

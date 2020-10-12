@@ -24,11 +24,15 @@
     <fullyQualifiedTypeName name="org.apache.lucene.document.LongPoint"/>
     <fullyQualifiedTypeName name="org.apache.lucene.search.Query"/>
     <fullyQualifiedTypeName name="org.apache.lucene.util.QueryBuilder"/>
-    <fullyQualifiedTypeName name="org.apache.lucene.search.ScoreDoc"/>
     <fullyQualifiedTypeName name="org.apache.lucene.document.Document"/>
     <fullyQualifiedTypeName name="org.apache.lucene.search.TopDocs"/>
     <fullyQualifiedTypeName name="org.apache.lucene.document.Field"/>
     <fullyQualifiedTypeName name="org.apache.lucene.document.Field.Store"/>
     <fullyQualifiedTypeName name="org.apache.lucene.document.StoredField"/>
     <fullyQualifiedTypeName name="org.apache.lucene.search.similarities.ClassicSimilarity"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.queryparser.classic.QueryParser"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.search.IndexSearcher"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.index.IndexReader"/>
+    <fullyQualifiedTypeName name="org.apache.lucene.search.ScoreDoc"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
 </qualifiedTypeNameHistroy>

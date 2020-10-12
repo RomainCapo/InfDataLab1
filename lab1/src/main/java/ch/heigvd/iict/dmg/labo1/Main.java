@@ -39,8 +39,8 @@ public class Main {
 		Analyzer analyser = getAnalyzer("english");
 		
 		// TODO student "Tuning the Lucene Score"
-		//Similarity similarity = new ClassicSimilarity();
-		Similarity similarity = new MySimilarity();
+		Similarity similarity = new ClassicSimilarity();
+		//Similarity similarity = new MySimilarity();
 		
 		CACMIndexer indexer = new CACMIndexer(analyser, similarity);
 		indexer.openIndex();
@@ -65,30 +65,22 @@ public class Main {
 	}
 
 	private static void readingIndex(QueriesPerformer queriesPerformer) {
-		//queriesPerformer.printTopRankingTerms("author", 10);
-		//queriesPerformer.printTopRankingTerms("title", 10);
+		queriesPerformer.printTopRankingTerms("author", 10);
+		queriesPerformer.printTopRankingTerms("title", 10);
 	}
 
 	private static void searching(QueriesPerformer queriesPerformer) {
 		// Example
-		queriesPerformer.query("\"Information Retrieval\"");
-
-		// TODO student
-        // queriesPerformer.query(<containing the term Information Retrieval>);
-		// queriesPerformer.query(<containing both Information and Retrieval>);
-        // and so on for all the queries asked on the instructions...
-        //
-		// Reminder: it must print the total number of results and
-		// the top 10 results.
+		queriesPerformer.query("query compiler");
+		queriesPerformer.query("\"Information Retrival\"");
+		queriesPerformer.query("Information Retrival");
+		queriesPerformer.query("Information Retrieval -Database");
+		queriesPerformer.query("Info*");
+		queriesPerformer.query("\"Information Retrieval\"~5");
 	}
 
 	private static Analyzer getAnalyzer(String analyzerName) throws IOException {
-	    // TODO student... For the part "Indexing and Searching CACM collection
-		// - Indexing" use, as indicated in the instructions,
-		// the StandardAnalyzer class.
-		//
-		// For the next part "Using different Analyzers" modify this method
-		// and return the appropriate Analyzers asked.
+
 
 		if(analyzerName == "stop") {
 			Path path = FileSystems.getDefault().getPath("common_words.txt");
