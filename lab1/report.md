@@ -54,74 +54,157 @@ To read the term vector :
 
 It can be seen that the (memory) size of the index is larger with the term vector.
 
-### Code
+
 CACMIndexer.java
 ```java
 @Override
-	public void onNewDocument(Long id, String authors, String title, String summary) {
+public void onNewDocument(Long id, String authors, String title, String summary) {
 
-		Document doc = new Document();
+	Document doc = new Document();
 
-		doc.add(new LongPoint("id", id));
-		doc.add(new StringField("author", authors, Field.Store.YES));
-		doc.add(new TextField("title", title, Field.Store.YES));
-
-		if (summary != null) {
-			FieldType fieldType = new FieldType();
-			fieldType.setIndexOptions(IndexOptions.DOCS);	
-			fieldType.setStoreTermVectorOffsets(true);// Store Offset
-			fieldType.setStoreTermVectors(true);// Store term vector
-
-			doc.add(new Field("summary", summary, fieldType));
-		}
-			try {
-				this.indexWriter.addDocument(doc);
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
+	doc.add(new StoredField("id", id));
+	
+	for (String author : authors.split(";")) {
+		doc.add(new StringField("authors", author, Field.Store.YES));
 
 	}
+	
+	doc.add(new TextField("title", title, Field.Store.YES));
+
+	if (summary != null) {
+		FieldType fieldType = new FieldType();
+		fieldType.setIndexOptions(IndexOptions.DOCS);	
+		fieldType.setStoreTermVectorOffsets(true);// Store Offset
+		fieldType.setStoreTermVectors(true);// Store term vector
+
+		doc.add(new Field("summary", summary, fieldType));
+	}
+		try {
+			this.indexWriter.addDocument(doc);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+
+}
 ```
 
 ## Chapter 3.2
+### 2 and 3)
 * WhitespaceAnalyzer() -> Separation of text from spaces
 	* The number of indexed documents and indexed terms : 3203 / 34272
-	* The number of indexed terms in the summary field :
-	* The top 10 frequent terms of the summary field in the index : 26821 
-	* The size of the index on disk : 1.5 Mo
-	* The required time for indexing :
+	* The number of indexed terms in the summary field : 26'821
+	* The top 10 frequent terms of the summary field in the index : of, the, is, a, and, to, in, for, The, are
+	* The size of the index on disk : 1.42 Mo
+	* The required time for indexing : 1135.0 ms
 	
 * EnglishAnalyzer() -> Analyzer for English and stop word removing
-	* The number of indexed documents and indexed terms : 
-	* The number of indexed terms in the summary field :
-	* The top 10 frequent terms of the summary field in the index : 
-	* The size of the index on disk : 1.2 Mo
-	* The required time for indexing :
+	* The number of indexed documents and indexed terms : 3203 / 23010
+	* The number of indexed terms in the summary field : 16724
+	* The top 10 frequent terms of the summary field in the index : us, which, comput, program, system, present, describ, paper, method, can
+	* The size of the index on disk : 1.09 Mo
+	* The required time for indexing : 1483.0 ms
 	
 * ShingleAnalyzerWrapper() -> 1-gram and 2-gram
-	* The number of indexed documents and indexed terms : 
-	* The number of indexed terms in the summary field :
-	* The top 10 frequent terms of the summary field in the index : 
-	* The size of the index on disk : 
-	* The required time for indexing :
+	* The number of indexed documents and indexed terms : 3203 / 113908
+	* The number of indexed terms in the summary field : 95116
+	* The top 10 frequent terms of the summary field in the index : the, of, a, is, and, to, in, for, are, ofthe
+	* The size of the index on disk : 3.14 Mo
+	* The required time for indexing : 1657.0 ms
 	
 * ShingleAnalyzerWrapper() -> 1-gram and 3-gram
-	* The number of indexed documents and indexed terms : 
-	* The number of indexed terms in the summary field :
-	* The top 10 frequent terms of the summary field in the index : 
-	* The size of the index on disk : 
-	* The required time for indexing :
+	* The number of indexed documents and indexed terms : 3203 / 158363
+	* The number of indexed terms in the summary field : 137620
+	* The top 10 frequent terms of the summary field in the index : the, of, a, is, and, to, in, for, are, this
+	* The size of the index on disk : 7.3 Mo
+	* The required time for indexing : 1936.0 ms
 	
 * StopAnalyzer() -> Letter tokenization, Lower case filter and stop word removal
-	* The number of indexed documents and indexed terms : 
-	* The number of indexed terms in the summary field :
-	* The top 10 frequent terms of the summary field in the index : 
-	* The size of the index on disk : 1.2
-	* The required time for indexing :
+	* The number of indexed documents and indexed terms : 3203 / 24663
+	* The number of indexed terms in the summary field : 18342
+	* The top 10 frequent terms of the summary field in the index :  system, computer, paper, presented, time, method, program, data, algorithm, discussed 
+	* The size of the index on disk : 1.05 Mo
+	* The required time for indexing : 926.0 ms
+
+Main.java
+```java
+public static void main(String[] args) throws IOException {
+
+		// 1.1. create an analyzer
+		double beforeTime = System.currentTimeMillis();
+		Analyzer analyser = getAnalyzer("stop");
+		
+		//Similarity similarity = new ClassicSimilarity();
+		Similarity similarity = new MySimilarity();
+		
+		CACMIndexer indexer = new CACMIndexer(analyser, similarity);
+		indexer.openIndex();
+		CACMParser parser = new CACMParser("documents/cacm.txt", indexer);
+		parser.startParsing();
+		indexer.finalizeIndex();
+		
+		double timeTaken = System.currentTimeMillis() - beforeTime;
+		System.out.println("Time taken in ms : " + timeTaken);
+
+		QueriesPerformer queriesPerformer = new QueriesPerformer(analyser, similarity);
+
+		// Section "Reading Index"
+		readingIndex(queriesPerformer);
+
+		// Section "Searching"
+		searching(queriesPerformer);
+
+		queriesPerformer.close();
+		
+
+	}
+	
+	...
+	
+private static Analyzer getAnalyzer(String analyzerName) throws IOException {
+
+		if(analyzerName == "stop") {
+			Path path = FileSystems.getDefault().getPath("common_words.txt");
+			return new StopAnalyzer(path);
+		} else if(analyzerName == "whitespace") {
+			return new WhitespaceAnalyzer();
+		} else if(analyzerName == "english") {
+			return new EnglishAnalyzer();
+		} else if(analyzerName == "shingle12") {
+			return new ShingleAnalyzerWrapper(new StandardAnalyzer() , 2, 2, "", true, true, "");
+
+		} else if(analyzerName == "shingle13") {
+			return new ShingleAnalyzerWrapper(new StandardAnalyzer() , 3, 3, "", true, true, "");
+
+		}
+		return new StandardAnalyzer();
+	}
+```
+
+### 4)
+1. The two Singhle analyzer take more place on the disk. This is due to the fact that these analysers store the same word several times. The indexing time is also longer. 
+
+2. Only the English analyzer and the Stop analyzer remove stop words. For the English analyzer it is even possible to specify its own stop word list. We notice that in the other analysers words like: the, of, is, a are stored and are even very frequent.
+
+3. Analysers using stop words take up less disk space as stop words are not stored. The two analyzers that take up the least storage are the English Analyzer and the Stop Analyzer, two analyzers that remove stop words. 
 
 ## Chapter 3.3
+### 1
+1. "" (No author) : 84
+
+### 2
+1. algorithm : 1008
+2. comput : 392
+3. program : 307
+4. system : 280
+5. gener : 169
+6. method : 156
+7. languag : 144
+8. function : 142
+9. us : 123
+10. data : 110
+
 QueriesPerformer.java
 ```java
 public void printTopRankingTerms(String field, int numTerms) {
@@ -144,21 +227,6 @@ public void printTopRankingTerms(String field, int numTerms) {
 		}
 	}
 ```
-
-### 1
-1. "" (No author) : 84
-
-### 2
-1. Incomplete Elliptic Integrals (Algorithm 73) : 5
-2. Hidden-Line Plotting Program (Algorithm R420) : 5
-3. Glossary of Computer Engineering and Programming Terminology : 5
-4. A Set of Test Matrices (Algorithm 52) : 5
-5. Simpson's Integration (Algorithm 84) : 4
-6. Normal Curve Integral (Algorithm 304 [S15]) : 4
-7. Matrix Inversion (Algorithm 58) : 4
-8. Evaluation of Determinant (Algorithm 41) : 4
-9. Direct Search (Algorithm 178 [E4]) : 4
-10. Critical Path Scheduling (Algorithm 40) : 4
 
 ## Chapter 3.4
 

@@ -36,9 +36,7 @@ public class Main {
 
 		// 1.1. create an analyzer
 		double beforeTime = System.currentTimeMillis();
-		Analyzer analyser = getAnalyzer("shingle12");
-		double timeTaken = System.currentTimeMillis() - beforeTime;
-		System.out.println("Time taken in ms : " + timeTaken);
+		Analyzer analyser = getAnalyzer("english");
 		
 		// TODO student "Tuning the Lucene Score"
 		//Similarity similarity = new ClassicSimilarity();
@@ -50,6 +48,9 @@ public class Main {
 		parser.startParsing();
 		indexer.finalizeIndex();
 		
+		double timeTaken = System.currentTimeMillis() - beforeTime;
+		System.out.println("Time taken in ms : " + timeTaken);
+
 		QueriesPerformer queriesPerformer = new QueriesPerformer(analyser, similarity);
 
 		// Section "Reading Index"
@@ -70,7 +71,7 @@ public class Main {
 
 	private static void searching(QueriesPerformer queriesPerformer) {
 		// Example
-		queriesPerformer.query("compiler program");
+		queriesPerformer.query("\"Information Retrieval\"");
 
 		// TODO student
         // queriesPerformer.query(<containing the term Information Retrieval>);
@@ -97,19 +98,12 @@ public class Main {
 		} else if(analyzerName == "english") {
 			return new EnglishAnalyzer();
 		} else if(analyzerName == "shingle12") {
-//			return new ShingleAnalyzerWrapper(new StandardAnalyzer(), 2);
 			return new ShingleAnalyzerWrapper(new StandardAnalyzer() , 2, 2, "", true, true, "");
-
 		} else if(analyzerName == "shingle13") {
 			return new ShingleAnalyzerWrapper(new StandardAnalyzer() , 3, 3, "", true, true, "");
 
 		}
 		return new StandardAnalyzer();
-
-		//return new StandardAnalyzer(); //   1.16 M
-//		return new WhitespaceAnalyzer(); // 1.5  M
-//		return new EnglishAnalyzer(); // 1.2 M
-//		return new ShingleAnalyzerWrapper(new StandardAnalyzer(), 1);
 
 
 	}
